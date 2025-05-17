@@ -11,9 +11,8 @@ class OrderStatus(models.TextChoices):
 
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
-    # products = models.ManyToManyField('product_repository.Product')
     prices = models.ManyToManyField('pricing.Price')
-    final_price = models.FloatField()
+    final_price = models.FloatField(blank=True)
     
     retailer = models.ForeignKey('users.Company', on_delete=models.CASCADE)
     client = models.ForeignKey('users.Client', on_delete=models.CASCADE)
