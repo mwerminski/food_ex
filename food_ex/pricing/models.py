@@ -6,12 +6,4 @@ class Price(models.Model):
     base_price = models.FloatField()
     
     def __str__(self):
-        return self.base_price
-    
-class CalculatedPrice(models.Model):
-    calculated_order_id = models.AutoField(primary_key=True)
-    product = models.ForeignKey('product_repository.Product', on_delete=models.CASCADE)
-    calculated_price = models.FloatField()
-        
-    def __str__(self):
-        return self.calculated_price
+        return f"{self.product}: {self.base_price}"

@@ -11,12 +11,12 @@ class OrderStatus(models.TextChoices):
 
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
-    products = models.ManyToManyField('product_repository.Product')
-    calculated_price = models.ManyToManyField('pricing.CalculatedPrice')
+    # products = models.ManyToManyField('product_repository.Product')
+    prices = models.ManyToManyField('pricing.Price')
     final_price = models.FloatField()
     
     retailer = models.ForeignKey('users.Company', on_delete=models.CASCADE)
-    client = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    client = models.ForeignKey('users.Client', on_delete=models.CASCADE)
     distance = models.FloatField()
     location = models.CharField(max_length=200)
     
