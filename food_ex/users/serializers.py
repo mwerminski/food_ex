@@ -5,10 +5,10 @@ from rest_framework import serializers
 class ClientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Client
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['url', 'local_name']
 
 
 class CompanySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Company
-        fields = ['url', 'name']
+        fields = ['url', 'full_name']
